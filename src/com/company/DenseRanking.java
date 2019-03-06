@@ -11,12 +11,14 @@ public class DenseRanking {
         int[] rankings = new int[alice.length];
         List<Integer> scoresList = Arrays.stream(scores).boxed().collect(Collectors.toList());
         TreeSet<Integer> leaderBoardSet = (TreeSet<Integer>) new TreeSet<>(scoresList).descendingSet();
+        int leaderBoardSetSize = leaderBoardSet.size();
 
         for(int i = 0 ; i < alice.length; i++) {
             leaderBoardSet.add(alice[i]);
             int ranking = leaderBoardSet.headSet(alice[i]).size();
             rankings[i] = ranking + 1;
-            leaderBoardSet.remove(alice[i]);
+            if (leaderBoardSet.size() > leaderBoardSetSize)
+                leaderBoardSet.remove(alice[i]);
         }
         return rankings;
     }
