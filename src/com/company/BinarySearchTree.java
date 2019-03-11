@@ -25,8 +25,8 @@ public class BinarySearchTree {
             return -1;
         }
         int left = getHeight(root.left) + 1;
-        int rigth = getHeight(root.right) + 1;
-        return Math.max(left, rigth);
+        int right = getHeight(root.right) + 1;
+        return Math.max(left, right);
     }
 
 }

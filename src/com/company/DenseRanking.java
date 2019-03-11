@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -10,7 +11,7 @@ public class DenseRanking {
     static int[] climbingTheLeaderboard(int[] scores, int[] alice) {
         int[] rankings = new int[alice.length];
         List<Integer> scoresList = Arrays.stream(scores).boxed().collect(Collectors.toList());
-        TreeSet<Integer> leaderBoardSet = (TreeSet<Integer>) new TreeSet<>(scoresList).descendingSet();
+        SortedSet<Integer> leaderBoardSet = new TreeSet<>(scoresList).descendingSet();
         int leaderBoardSetSize = leaderBoardSet.size();
 
         for(int i = 0 ; i < alice.length; i++) {
@@ -52,5 +53,5 @@ public class DenseRanking {
         int[] alice2 = {50, 65, 77, 90, 102};
         int[] ranks2 = DenseRanking.climbingLeaderboard(scores2, alice2); // 6, 5, 4, 2, 1
         System.out.println(Arrays.toString(ranks2));
-    */
+*/
 
