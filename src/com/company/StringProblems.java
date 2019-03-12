@@ -1,9 +1,6 @@
 package com.company;
 
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 public class StringProblems {
     /*
@@ -68,6 +65,23 @@ public class StringProblems {
             }
         }
         return count;
+    }
+
+    static int maxOccuranceOfWord(String s) {
+        String[] words = s.split("\\s+");
+        Map<String, Integer> wordOccurrence = new HashMap<>();
+        for (int i = 0; i < words.length; i++) {
+            Integer occurannce = wordOccurrence.get(words[i]);
+            if(occurannce == null) {
+                occurannce = 0;
+            }
+            wordOccurrence.put(words[i], ++occurannce);
+        }
+        return Collections.max(wordOccurrence.values());
+//        return occurrences.entrySet().stream()
+//                .mapToInt(Map.Entry::getValue)
+//                .max()
+//                .getAsInt();
     }
 
 }
